@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_options",
+  "info": {
+    "singularName": "product-option",
+    "pluralName": "product-options",
+    "displayName": "ProductOption"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "mappedBy": "product_options"
+    }
+  }
+}

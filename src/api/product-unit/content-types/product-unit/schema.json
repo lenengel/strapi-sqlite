@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_units",
+  "info": {
+    "singularName": "product-unit",
+    "pluralName": "product-units",
+    "displayName": "ProductUnit"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "mappedBy": "product_units"
+    }
+  }
+}
