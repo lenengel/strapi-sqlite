@@ -4,7 +4,8 @@
   "info": {
     "singularName": "order",
     "pluralName": "orders",
-    "displayName": "Order"
+    "displayName": "Order",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -34,6 +35,12 @@
     },
     "order": {
       "type": "json"
+    },
+    "ordered_products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::ordered-product.ordered-product",
+      "mappedBy": "order"
     }
   }
 }

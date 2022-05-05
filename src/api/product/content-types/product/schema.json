@@ -37,28 +37,19 @@
     },
     "product_options": {
       "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::product-option.product-option",
-      "inversedBy": "products"
+      "relation": "oneToMany",
+      "target": "api::product-option.product-option"
     },
     "product_units": {
       "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::product-unit.product-unit",
-      "inversedBy": "products"
+      "relation": "oneToMany",
+      "target": "api::product-unit.product-unit"
     },
     "categories": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::category.category",
       "inversedBy": "products"
-    },
-    "status": {
-      "type": "enumeration",
-      "enum": [
-        "draft",
-        "published"
-      ]
     }
   }
 }

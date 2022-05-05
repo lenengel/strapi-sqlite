@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "delivery_dates",
+  "info": {
+    "singularName": "delivery-date",
+    "pluralName": "delivery-dates",
+    "displayName": "DeliveryDate"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "date": {
+      "type": "date"
+    }
+  }
+}
