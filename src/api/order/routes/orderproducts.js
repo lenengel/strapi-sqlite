@@ -21,6 +21,14 @@ module.exports = {
         config: {
           auth: false,
         },
+      },
+      { // Path defined with a URL parameter
+        method: 'DELETE',
+        path: '/orderproducts/:id',
+        handler: 'orderproducts.delete',
+        config: {
+          auth: false,
+        },
       }
     ]
   };
