@@ -4,7 +4,8 @@
   "info": {
     "singularName": "product-unit",
     "pluralName": "product-units",
-    "displayName": "ProductUnit"
+    "displayName": "ProductUnit",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -14,8 +15,8 @@
     "name": {
       "type": "string"
     },
-    "slug": {
-      "type": "uid"
+    "weight": {
+      "type": "decimal"
     }
   }
 }

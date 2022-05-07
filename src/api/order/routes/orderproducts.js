@@ -22,6 +22,15 @@ module.exports = {
           auth: false,
         },
       },
+      
+      { // Path defined with a URL parameter
+        method: 'GET',
+        path: '/orderproducts/:id',
+        handler: 'orderproducts.findOne',
+        config: {
+          auth: false,
+        },
+      },
       { // Path defined with a URL parameter
         method: 'DELETE',
         path: '/orderproducts/:id',

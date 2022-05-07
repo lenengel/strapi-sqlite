@@ -25,6 +25,9 @@
       "relation": "manyToOne",
       "target": "api::order.order",
       "inversedBy": "ordered_products"
+    },
+    "unit": {
+      "type": "decimal"
     }
   }
 }

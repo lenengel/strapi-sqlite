@@ -16,6 +16,7 @@ module.exports = {
         const response = await strapi.service('api::ordered-product.ordered-product').create({
           data: {
           quantity: parseInt(order.quantity),
+          unit:  parseFloat(order.unit),
           product: order.id,
         }});
         orderdProducts.push(response.id);
@@ -54,19 +55,34 @@ module.exports = {
     ctx.response.body = entries; // we could also send a JSON
     ctx.response.status = 200;
   },
+  async findOne(ctx) { // called by GET /orderedproducts
+    const { id } = ctx.params;
+    const entry =  await strapi.entityService.findOne('api::order.order', id, {
+      populate: {
+        ordered_products: {
+          populate: {
+            product: {
+              populate: {
+                product_units : true
+              }
+            }
+          },
+        },
+      },
+    });
+    
+    ctx.response.body = entry; // we could also send a JSON
+    ctx.response.status = 200;
+  },
   async delete(ctx) { // called by DELETE /orderedproducts
     const { id } = ctx.params;
 
     try {
-      console.log("ID TO DELETE = " + id);
       const order = await strapi.entityService.delete('api::order.order', id, {
         populate: ['ordered_products']
       });
-      console.log(order);
       for(const orderedProduct of order.ordered_products) {
-        console.log("orderedProduct = ", orderedProduct);
         const reply = await strapi.entityService.delete('api::ordered-product.ordered-product', orderedProduct.id);
-        console.log(reply);
       }
       
       ctx.response.body = "OK"; // we could also send a JSON
